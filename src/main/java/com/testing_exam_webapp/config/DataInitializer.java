@@ -44,6 +44,16 @@ public class DataInitializer implements CommandLineRunner {
             userRepository.save(admin);
         }
 
+        // Initialize test user
+        if (userRepository.findByUsername("testUser").isEmpty()) {
+            User testUser = new User();
+            testUser.setUserId(UUID.randomUUID());
+            testUser.setUsername("testUser");
+            testUser.setPassword(passwordEncoder.encode("password"));
+            testUser.setRole(Role.ADMIN);
+            userRepository.save(testUser);
+        }
+
         // Initialize hospitals if they don't exist
         if (hospitalRepository.count() == 0) {
             // Create Rigshospitalet

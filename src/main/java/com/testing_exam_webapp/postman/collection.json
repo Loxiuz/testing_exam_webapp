@@ -1,0 +1,5463 @@
+{
+  "info": {
+    "_postman_id": "167496c8-4220-4048-8e9d-190a41dbac04",
+    "name": "Hospital API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29482344",
+    "_collection_link": "https://testinggruppen.postman.co/workspace/Team-Workspace~dcea8db5-35f9-4e59-8db0-13615d9bc2e9/collection/29482344-167496c8-4220-4048-8e9d-190a41dbac04?action=share&source=collection_link&creator=29482344"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "item": [
+            {
+              "name": "/auth/register 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"testUser\",\n  \"password\": \"password123\",\n  \"role\": \"USER\"\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/auth/register",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Registration",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"USER\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": ""
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json",
+                      "description": "",
+                      "type": "text"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"userId\": 123,\n    \"username\": \"testUser\",\n    \"password\": \"password123\",\n    \"role\": \"USER\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "/auth/register 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"testUser\",\n  \"password\": \"password123\",\n  \"role\": \"USER\"\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/auth/register",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad request with existing user",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"username\": \"testUser\",\n    \"password\": \"password123\",\n    \"role\": \"USER\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/auth/register",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [
+                    {
+                      "expires": "Invalid Date",
+                      "domain": "",
+                      "path": ""
+                    }
+                  ],
+                  "body": ""
+                }
+              ]
+            }
+          ],
+          "auth": {
+            "type": "noauth"
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "item": [
+            {
+              "name": "/auth/login 200",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"testUser\",\n  \"password\": \"password\"\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/auth/login",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Login",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"password123\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": ""
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json",
+                      "description": "",
+                      "type": "text"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\",\n    \"role\": \"USER\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "/auth/login 403",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"invalidUsername\",\n  \"password\": \"password123\"\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/auth/login",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Forbidden on invalid login",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"username\": \"invalidUsername\",\n  \"password\": \"orPassword\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/auth/login",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "Text",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ],
+          "auth": {
+            "type": "noauth"
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "create",
+      "item": [
+        {
+          "name": "Create hospital",
+          "item": [
+            {
+              "name": "/hospitals/create 201",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0VXNlciIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc2NTU3Njk3OCwiZXhwIjoxNzY1NjYzMzc4fQ.seWxLZg1FKnsHrL6DSF5vXd0vwlsIQJlUDhc8MdKeanrC9PWytnePb60qSzzrIDLrwUJPXPoRXCbXZ_cxAFJOA",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"city\":\"City\",\"hospitalName\":\"City Hospital\", \"address\": \"123 Main St\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"City Hospital\",\"address\":\"123 Main St\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"City Hospital\",\"address\":\"123 Main St\"}"
+                }
+              ]
+            },
+            {
+              "name": "/hospitals/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"city\":\"\",\"hospitalName\":\"\", \"address\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"address\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid hospital data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create medication",
+          "item": [
+            {
+              "name": "/medications/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"medicationName\":\"Aspirin\",\"dosage\":\"100mg\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Aspirin\",\"dosage\":\"100mg\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"Aspirin\",\"dosage\":\"100mg\"}"
+                }
+              ]
+            },
+            {
+              "name": "/medications/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"medicationName\":\"\",\"dosage\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"dosage\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid medication data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create ward",
+          "item": [
+            {
+              "name": "/wards/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"type\":\"CARDIOLOGY\",\"maxCapacity\":50}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Cardiology\",\"capacity\":50}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"Cardiology\",\"capacity\":50}"
+                }
+              ]
+            },
+            {
+              "name": "/wards/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"type\":\"\",\"maxCapacity\":0}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"capacity\":-10}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid ward data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create doctor",
+          "item": [
+            {
+              "name": "/doctors/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"doctorName\":\"Dr. Smith\",\"specialty\":\"Cardiology\", \"wardId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Dr. Smith\",\"specialty\":\"Cardiology\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"111\",\"name\":\"Dr. Smith\",\"specialty\":\"Cardiology\"}"
+                }
+              ]
+            },
+            {
+              "name": "/doctors/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"doctorName\":\"\",\"specialty\":\"\", \"wardId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"specialty\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid doctor data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create diagnosis",
+          "item": [
+            {
+              "name": "/diagnosis/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"diagnosisDate\":\"222\",\"description\":\"Flu symptoms\", \"doctorId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"222\",\"details\":\"Flu symptoms\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"321\",\"patientId\":\"222\",\"details\":\"Flu symptoms\"}"
+                }
+              ]
+            },
+            {
+              "name": "/diagnosis/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"diagnosisDate\":\"\",\"description\":\"\", \"doctorId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"\",\"details\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid diagnosis data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create nurse",
+          "item": [
+            {
+              "name": "/nurses/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"nurseName\":\"Nurse Joy\",\"specialty\":\"Emergency\", \"wardId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Nurse Joy\",\"department\":\"Emergency\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"333\",\"name\":\"Nurse Joy\",\"department\":\"Emergency\"}"
+                }
+              ]
+            },
+            {
+              "name": "/nurses/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"nurseName\":\"Nurse Joy\",\"specialty\":\"Emergency\", \"wardId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"department\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid nurse data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create patient",
+          "item": [
+            {
+              "name": "/patients/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"patientName\": \"John Doe\",\r\n    \"dateOfBirth\": \"\",\r\n    \"gender\": \"\",\r\n    \"wardId\": \"\",\r\n    \"hospitalId\": \"\",\r\n    \"diagnosisIds\": []\r\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"John Doe\",\"age\":30}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"222\",\"name\":\"John Doe\",\"age\":30}"
+                }
+              ]
+            },
+            {
+              "name": "/patients/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"patientName\": \"John Doe\",\r\n    \"dateOfBirth\": \"\",\r\n    \"gender\": \"\",\r\n    \"wardId\": \"\",\r\n    \"hospitalId\": \"\",\r\n    \"diagnosisIds\": []\r\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"age\":-5}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid patient data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create appointment",
+          "item": [
+            {
+              "name": "/appointments/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"apoointmentDate\": \"2025-01-01\",\r\n    \"reason\": \"\",\r\n    \"doctorId\": \"\",\r\n    \"patientId\": \"\",\r\n    \"nurseId\": \"\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"date\":\"2025-01-01\",\"doctorId\":\"111\",\"patientId\":\"222\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"123\",\"date\":\"2025-01-01\"}"
+                }
+              ]
+            },
+            {
+              "name": "/appointments/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"apoointmentDate\": \"2025-01-01\",\r\n    \"reason\": \"\",\r\n    \"doctorId\": \"\",\r\n    \"patientId\": \"\",\r\n    \"nurseId\": \"\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"date\":\"\",\"doctorId\":\"111\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid appointment request\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create prescription",
+          "item": [
+            {
+              "name": "/prescriptions/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"startDate\": \"\",\r\n    \"endDate\": \"\",\r\n    \"patientId\": \"\",\r\n    \"doctorId\": \"\",\r\n    \"medicationId\": \"\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"222\",\"medication\":\"Drug A\",\"dosage\":\"2 times a day\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"456\",\"patientId\":\"222\",\"medication\":\"Drug A\",\"dosage\":\"2 times a day\"}"
+                }
+              ]
+            },
+            {
+              "name": "/prescriptions/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"startDate\": \"\",\r\n    \"endDate\": \"\",\r\n    \"patientId\": \"\",\r\n    \"doctorId\": \"\",\r\n    \"medicationId\": \"\"\r\n}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"\",\"medication\":\"\",\"dosage\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid prescription data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Create surgery",
+          "item": [
+            {
+              "name": "/surgeries/create 201",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"surgeryDate\":\"2025-02-15\", \"patientId\":\"\",\"description\":\"\", \"doctorId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created on successful creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"222\",\"type\":\"Appendectomy\",\"date\":\"2025-02-15\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"789\",\"patientId\":\"222\",\"type\":\"Appendectomy\",\"date\":\"2025-02-15\"}"
+                }
+              ]
+            },
+            {
+              "name": "/surgeries/create 400",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"surgeryDate\":\"\", \"patientId\":\"\",\"description\":\"\", \"doctorId\": \"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/create",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "create"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed creation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"\",\"type\":\"\",\"date\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/create",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "create"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid surgery data\"}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get one",
+      "item": [
+        {
+          "name": "Get one hospital",
+          "item": [
+            {
+              "name": "/hospitals/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/{{hospitalId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "{{hospitalId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/{{hospitalId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "{{hospitalId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"City Hospital\",\"address\":\"123 Main St\"}"
+                }
+              ]
+            },
+            {
+              "name": "/hospitals/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Hospital not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one medication",
+          "item": [
+            {
+              "name": "/medications/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/{{medicationId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "{{medicationId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/{{medicationId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "{{medicationId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"Aspirin\",\"dosage\":\"100mg\"}"
+                }
+              ]
+            },
+            {
+              "name": "/medications/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Medication not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one ward",
+          "item": [
+            {
+              "name": "/wards/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/{{wardId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "{{wardId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/{{wardId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "{{wardId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"Cardiology\",\"capacity\":50}"
+                }
+              ]
+            },
+            {
+              "name": "/wards/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Ward not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one doctor",
+          "item": [
+            {
+              "name": "/doctors/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/{{doctorId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "{{doctorId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/{{doctorId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "{{doctorId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"111\",\"name\":\"Dr. Smith\",\"specialty\":\"Cardiology\"}"
+                }
+              ]
+            },
+            {
+              "name": "/doctors/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Doctor not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one diagnosis",
+          "item": [
+            {
+              "name": "/diagnosis/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/{{diagnosisId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "{{diagnosisId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/{{diagnosisId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "{{diagnosisId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"321\",\"patientId\":\"222\",\"details\":\"Flu symptoms\"}"
+                }
+              ]
+            },
+            {
+              "name": "/diagnosis/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Diagnosis not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one nurse",
+          "item": [
+            {
+              "name": "/nurses/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/{{nurseId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "{{nurseId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/{{nurseId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "{{nurseId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"333\",\"name\":\"Nurse Joy\",\"department\":\"Emergency\"}"
+                }
+              ]
+            },
+            {
+              "name": "/nurses/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Nurse not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one patient",
+          "item": [
+            {
+              "name": "/patients/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/{{patientId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "{{patientId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/{{patientId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "{{patientId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"222\",\"name\":\"John Doe\",\"age\":30}"
+                }
+              ]
+            },
+            {
+              "name": "/patients/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Patient not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one appointment",
+          "item": [
+            {
+              "name": "/appointments/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/{{appointmentId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "{{appointmentId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/{{appointmentId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "{{appointmentId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"123\",\"date\":\"2025-01-01\"}"
+                }
+              ]
+            },
+            {
+              "name": "/appointments/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Appointment not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one prescription",
+          "item": [
+            {
+              "name": "/prescriptions/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/{{prescriptionId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "{{prescriptionId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/{{prescriptionId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "{{prescriptionId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"456\",\"patientId\":\"222\",\"medication\":\"Drug A\",\"dosage\":\"2 times a day\"}"
+                }
+              ]
+            },
+            {
+              "name": "/prescriptions/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Prescription not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get one surgery",
+          "item": [
+            {
+              "name": "/surgeries/{id} 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/{{surgeryId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "{{surgeryId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/{{surgeryId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "{{surgeryId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"789\",\"patientId\":\"222\",\"type\":\"Appendectomy\",\"date\":\"2025-02-15\"}"
+                }
+              ]
+            },
+            {
+              "name": "/surgeries/{id} 404",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/invalid-id",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "invalid-id"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/invalid-id",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "invalid-id"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Surgery not found\"}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "get all",
+      "item": [
+        {
+          "name": "Get all hospitals",
+          "item": [
+            {
+              "name": "/hospitals/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"1\",\"name\":\"City Hospital\",\"address\":\"123 Main St\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/hospitals/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all medications",
+          "item": [
+            {
+              "name": "/medications/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"1\",\"name\":\"Aspirin\",\"dosage\":\"100mg\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/medications/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all wards",
+          "item": [
+            {
+              "name": "/wards/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"1\",\"name\":\"Cardiology\",\"capacity\":50}]"
+                }
+              ]
+            },
+            {
+              "name": "/wards/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all doctors",
+          "item": [
+            {
+              "name": "/doctors/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"111\",\"name\":\"Dr. Smith\",\"specialty\":\"Cardiology\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/doctors/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all diagnosis",
+          "item": [
+            {
+              "name": "/diagnosis/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"321\",\"patientId\":\"222\",\"details\":\"Flu symptoms\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/diagnosis/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all nurses",
+          "item": [
+            {
+              "name": "/nurses/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"333\",\"name\":\"Nurse Joy\",\"department\":\"Emergency\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/nurses/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all patients",
+          "item": [
+            {
+              "name": "/patients/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"222\",\"name\":\"John Doe\",\"age\":30}]"
+                }
+              ]
+            },
+            {
+              "name": "/patients/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all appointments",
+          "item": [
+            {
+              "name": "/appointments/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"123\",\"date\":\"2025-01-01\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/appointments/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all prescriptions",
+          "item": [
+            {
+              "name": "/prescriptions/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"456\",\"patientId\":\"222\",\"medication\":\"Drug A\",\"dosage\":\"2 times a day\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/prescriptions/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get all surgeries",
+          "item": [
+            {
+              "name": "/surgeries/all 200",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful retrieval",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "[{\"id\":\"789\",\"patientId\":\"222\",\"type\":\"Appendectomy\",\"date\":\"2025-02-15\"}]"
+                }
+              ]
+            },
+            {
+              "name": "/surgeries/all 204",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/all",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "all"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on empty list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/all",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "all"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "update",
+      "item": [
+        {
+          "name": "Update hospital",
+          "item": [
+            {
+              "name": "/hospitals/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"Metro Hospital\",\"address\":\"456 Elm St\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/update/{{hospitalId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "update",
+                    "{{hospitalId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Metro Hospital\",\"address\":\"456 Elm St\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/update/{{hospitalId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "update",
+                        "{{hospitalId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"Metro Hospital\",\"address\":\"456 Elm St\"}"
+                }
+              ]
+            },
+            {
+              "name": "/hospitals/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"\",\"address\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"address\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update medication",
+          "item": [
+            {
+              "name": "/medications/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"Ibuprofen\",\"dosage\":\"200mg\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/update/{{medicationId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "update",
+                    "{{medicationId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Ibuprofen\",\"dosage\":\"200mg\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/update/{{medicationId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "update",
+                        "{{medicationId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"Ibuprofen\",\"dosage\":\"200mg\"}"
+                }
+              ]
+            },
+            {
+              "name": "/medications/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"\",\"dosage\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"dosage\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update ward",
+          "item": [
+            {
+              "name": "/wards/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"Neurology\",\"capacity\":60}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/update/{{wardId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "update",
+                    "{{wardId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Neurology\",\"capacity\":60}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/update/{{wardId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "update",
+                        "{{wardId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"1\",\"name\":\"Neurology\",\"capacity\":60}"
+                }
+              ]
+            },
+            {
+              "name": "/wards/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"\",\"capacity\":-5}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"capacity\":-5}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update doctor",
+          "item": [
+            {
+              "name": "/doctors/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"Dr. John Smith\",\"specialty\":\"Neurology\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/update/{{doctorId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "update",
+                    "{{doctorId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Dr. John Smith\",\"specialty\":\"Neurology\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/update/{{doctorId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "update",
+                        "{{doctorId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"111\",\"name\":\"Dr. John Smith\",\"specialty\":\"Neurology\"}"
+                }
+              ]
+            },
+            {
+              "name": "/doctors/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"\",\"specialty\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"specialty\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update diagnosis",
+          "item": [
+            {
+              "name": "/diagnosis/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"patientId\":\"222\",\"details\":\"Severe flu symptoms\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/update/{{diagnosisId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "update",
+                    "{{diagnosisId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"222\",\"details\":\"Severe flu symptoms\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/update/{{diagnosisId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "update",
+                        "{{diagnosisId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"321\",\"patientId\":\"222\",\"details\":\"Severe flu symptoms\"}"
+                }
+              ]
+            },
+            {
+              "name": "/diagnosis/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"patientId\":\"\",\"details\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"\",\"details\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update nurse",
+          "item": [
+            {
+              "name": "/nurses/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"Nurse Joy Updated\",\"department\":\"ICU\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/update/{{nurseId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "update",
+                    "{{nurseId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"Nurse Joy Updated\",\"department\":\"ICU\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/update/{{nurseId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "update",
+                        "{{nurseId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"333\",\"name\":\"Nurse Joy Updated\",\"department\":\"ICU\"}"
+                }
+              ]
+            },
+            {
+              "name": "/nurses/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"\",\"department\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"department\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update patient",
+          "item": [
+            {
+              "name": "/patients/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"John A. Doe\",\"age\":31}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/update/{{patientId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "update",
+                    "{{patientId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"John A. Doe\",\"age\":31}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/update/{{patientId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "update",
+                        "{{patientId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"222\",\"name\":\"John A. Doe\",\"age\":31}"
+                }
+              ]
+            },
+            {
+              "name": "/patients/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\":\"\",\"age\":-1}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"name\":\"\",\"age\":-1}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update appointment",
+          "item": [
+            {
+              "name": "/appointments/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"date\":\"2025-05-01\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/update/{{appointmentId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "update",
+                    "{{appointmentId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"date\":\"2025-05-01\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/update/{{appointmentId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "update",
+                        "{{appointmentId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"123\",\"date\":\"2025-05-01\"}"
+                }
+              ]
+            },
+            {
+              "name": "/appointments/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"date\":\"invalid-date\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"date\":\"invalid-date\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update request\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update prescription",
+          "item": [
+            {
+              "name": "/prescriptions/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"patientId\":\"222\",\"medication\":\"Drug B\",\"dosage\":\"3 times a day\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/update/{{prescriptionId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "update",
+                    "{{prescriptionId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"222\",\"medication\":\"Drug B\",\"dosage\":\"3 times a day\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/update/{{prescriptionId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "update",
+                        "{{prescriptionId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"456\",\"patientId\":\"222\",\"medication\":\"Drug B\",\"dosage\":\"3 times a day\"}"
+                }
+              ]
+            },
+            {
+              "name": "/prescriptions/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"patientId\":\"\",\"medication\":\"\",\"dosage\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"\",\"medication\":\"\",\"dosage\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Update surgery",
+          "item": [
+            {
+              "name": "/surgeries/update/{id} 200",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"patientId\":\"222\",\"type\":\"Cholecystectomy\",\"date\":\"2025-03-01\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/update/{{surgeryId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "update",
+                    "{{surgeryId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK on successful update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"222\",\"type\":\"Cholecystectomy\",\"date\":\"2025-03-01\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/update/{{surgeryId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "update",
+                        "{{surgeryId}}"
+                      ]
+                    }
+                  },
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"id\":\"789\",\"patientId\":\"222\",\"type\":\"Cholecystectomy\",\"date\":\"2025-03-01\"}"
+                }
+              ]
+            },
+            {
+              "name": "/surgeries/update/{id} 400",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"patientId\":\"\",\"type\":\"\",\"date\":\"\"}"
+                },
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/update/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "update",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Bad Request on failed update",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"patientId\":\"\",\"type\":\"\",\"date\":\"\"}"
+                    },
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/update/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "update",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Invalid update data\"}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "delete",
+      "item": [
+        {
+          "name": "Delete hospital",
+          "item": [
+            {
+              "name": "/hospitals/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/delete/{{hospitalId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "delete",
+                    "{{hospitalId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/delete/{{hospitalId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "delete",
+                        "{{hospitalId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/hospitals/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/hospitals/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "hospitals",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/hospitals/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "hospitals",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Hospital not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete medication",
+          "item": [
+            {
+              "name": "/medications/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/delete/{{medicationId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "delete",
+                    "{{medicationId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/delete/{{medicationId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "delete",
+                        "{{medicationId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/medications/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/medications/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "medications",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/medications/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "medications",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Medication not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete ward",
+          "item": [
+            {
+              "name": "/wards/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/delete/{{wardId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "delete",
+                    "{{wardId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/delete/{{wardId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "delete",
+                        "{{wardId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/wards/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/wards/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "wards",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/wards/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "wards",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Ward not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete doctor",
+          "item": [
+            {
+              "name": "/doctors/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/delete/{{doctorId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "delete",
+                    "{{doctorId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/delete/{{doctorId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "delete",
+                        "{{doctorId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/doctors/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/doctors/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "doctors",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/doctors/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "doctors",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Doctor not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete diagnosis",
+          "item": [
+            {
+              "name": "/diagnosis/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/delete/{{diagnosisId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "delete",
+                    "{{diagnosisId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/delete/{{diagnosisId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "delete",
+                        "{{diagnosisId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/diagnosis/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/diagnosis/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "diagnosis",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/diagnosis/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "diagnosis",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Diagnosis not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete nurse",
+          "item": [
+            {
+              "name": "/nurses/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/delete/{{nurseId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "delete",
+                    "{{nurseId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/delete/{{nurseId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "delete",
+                        "{{nurseId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/nurses/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/nurses/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "nurses",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/nurses/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "nurses",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Nurse not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete patient",
+          "item": [
+            {
+              "name": "/patients/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/delete/{{patientId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "delete",
+                    "{{patientId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/delete/{{patientId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "delete",
+                        "{{patientId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/patients/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/patients/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "patients",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/patients/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "patients",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Patient not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete appointment",
+          "item": [
+            {
+              "name": "/appointments/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/delete/{{appointmentId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "delete",
+                    "{{appointmentId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/delete/{{appointmentId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "delete",
+                        "{{appointmentId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/appointments/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/appointments/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "appointments",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/appointments/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "appointments",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Appointment not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete prescription",
+          "item": [
+            {
+              "name": "/prescriptions/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/delete/{{prescriptionId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "delete",
+                    "{{prescriptionId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/delete/{{prescriptionId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "delete",
+                        "{{prescriptionId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/prescriptions/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/prescriptions/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "prescriptions",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/prescriptions/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "prescriptions",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Prescription not found\"}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Delete surgery",
+          "item": [
+            {
+              "name": "/surgeries/delete/{id} 204",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/delete/{{surgeryId}}",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "delete",
+                    "{{surgeryId}}"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "No Content on successful deletion",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/delete/{{surgeryId}}",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "delete",
+                        "{{surgeryId}}"
+                      ]
+                    }
+                  },
+                  "code": 204,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            },
+            {
+              "name": "/surgeries/delete/{id} 404",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{BACKEND_URL}}/surgeries/delete/invalid",
+                  "host": [
+                    "{{BACKEND_URL}}"
+                  ],
+                  "path": [
+                    "surgeries",
+                    "delete",
+                    "invalid"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Not Found on invalid ID",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{BACKEND_URL}}/surgeries/delete/invalid",
+                      "host": [
+                        "{{BACKEND_URL}}"
+                      ],
+                      "path": [
+                        "surgeries",
+                        "delete",
+                        "invalid"
+                      ]
+                    }
+                  },
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [],
+                  "cookie": [],
+                  "body": "{\"error\":\"Surgery not found\"}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "",
+        "type": "string"
+      }
+    ]
+  }
+}
