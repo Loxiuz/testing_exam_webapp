@@ -16,4 +16,6 @@ public class Nurse extends NurseBase {
     private UUID nurseId;
     @ManyToOne
     private Ward ward;
+    @ManyToOne
+    private Hospital hospital;
 }

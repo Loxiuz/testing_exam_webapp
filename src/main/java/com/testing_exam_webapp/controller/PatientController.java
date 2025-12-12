@@ -59,5 +59,26 @@ public class PatientController {
         patientService.deletePatient(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    // Query endpoints
+    @GetMapping("/by-ward/{wardId}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<List<Patient>> getPatientsByWardId(@PathVariable UUID wardId) {
+        List<Patient> patients = patientService.getPatientsByWardId(wardId);
+        if (patients.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(patients, HttpStatus.OK);
+    }
+
+    @GetMapping("/by-hospital/{hospitalId}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<List<Patient>> getPatientsByHospitalId(@PathVariable UUID hospitalId) {
+        List<Patient> patients = patientService.getPatientsByHospitalId(hospitalId);
+        if (patients.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(patients, HttpStatus.OK);
+    }
 }
 

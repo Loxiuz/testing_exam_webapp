@@ -59,5 +59,16 @@ public class HospitalController {
         hospitalService.deleteHospital(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    // Query endpoints
+    @GetMapping("/by-city/{city}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<List<Hospital>> getHospitalsByCity(@PathVariable String city) {
+        List<Hospital> hospitals = hospitalService.getHospitalsByCity(city);
+        if (hospitals.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(hospitals, HttpStatus.OK);
+    }
 }
 

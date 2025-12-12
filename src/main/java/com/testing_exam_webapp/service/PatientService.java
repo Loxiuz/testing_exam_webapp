@@ -2,6 +2,7 @@ package com.testing_exam_webapp.service;
 
 import com.testing_exam_webapp.dto.PatientRequest;
 import com.testing_exam_webapp.exception.EntityNotFoundException;
+import com.testing_exam_webapp.exception.ValidationException;
 import com.testing_exam_webapp.model.mysql.Diagnosis;
 import com.testing_exam_webapp.model.mysql.Hospital;
 import com.testing_exam_webapp.model.mysql.Patient;
@@ -59,18 +60,39 @@ public class PatientService {
         }
 
         UUID wardId = request.getWardId();
-        if (wardId != null) {
-            Ward ward = wardRepository.findById(wardId)
-                    .orElseThrow(() -> new EntityNotFoundException("Ward not found"));
-            patient.setWard(ward);
-        }
-
         UUID hospitalId = request.getHospitalId();
-        if (hospitalId != null) {
-            Hospital hospital = hospitalRepository.findById(hospitalId)
-                    .orElseThrow(() -> new EntityNotFoundException("Hospital not found"));
-            patient.setHospital(hospital);
+        
+        Ward ward = null;
+        Hospital hospital = null;
+        
+        if (wardId != null) {
+            ward = wardRepository.findById(wardId)
+                    .orElseThrow(() -> new EntityNotFoundException("Ward not found"));
         }
+        
+        if (hospitalId != null) {
+            hospital = hospitalRepository.findById(hospitalId)
+                    .orElseThrow(() -> new EntityNotFoundException("Hospital not found"));
+        }
+        
+        // Validate that ward belongs to hospital if both are provided
+        if (ward != null && hospital != null) {
+            final UUID hospitalIdToCheck = hospital.getHospitalId();
+            final String hospitalName = hospital.getHospitalName();
+            boolean wardBelongsToHospital = ward.getHospitals() != null && 
+                    ward.getHospitals().stream()
+                            .anyMatch(h -> h.getHospitalId().equals(hospitalIdToCheck));
+            
+            if (!wardBelongsToHospital) {
+                throw new ValidationException(
+                    "The selected ward does not belong to the selected hospital. " +
+                    "Please select a ward that exists in " + hospitalName + "."
+                );
+            }
+        }
+        
+        patient.setWard(ward);
+        patient.setHospital(hospital);
 
         return patientRepository.save(patient);
     }
@@ -96,18 +118,39 @@ public class PatientService {
         }
 
         UUID wardId = request.getWardId();
-        if (wardId != null) {
-            Ward ward = wardRepository.findById(wardId)
-                    .orElseThrow(() -> new EntityNotFoundException("Ward not found"));
-            patient.setWard(ward);
-        }
-
         UUID hospitalId = request.getHospitalId();
-        if (hospitalId != null) {
-            Hospital hospital = hospitalRepository.findById(hospitalId)
-                    .orElseThrow(() -> new EntityNotFoundException("Hospital not found"));
-            patient.setHospital(hospital);
+        
+        Ward ward = null;
+        Hospital hospital = null;
+        
+        if (wardId != null) {
+            ward = wardRepository.findById(wardId)
+                    .orElseThrow(() -> new EntityNotFoundException("Ward not found"));
         }
+        
+        if (hospitalId != null) {
+            hospital = hospitalRepository.findById(hospitalId)
+                    .orElseThrow(() -> new EntityNotFoundException("Hospital not found"));
+        }
+        
+        // Validate that ward belongs to hospital if both are provided
+        if (ward != null && hospital != null) {
+            final UUID hospitalIdToCheck = hospital.getHospitalId();
+            final String hospitalName = hospital.getHospitalName();
+            boolean wardBelongsToHospital = ward.getHospitals() != null && 
+                    ward.getHospitals().stream()
+                            .anyMatch(h -> h.getHospitalId().equals(hospitalIdToCheck));
+            
+            if (!wardBelongsToHospital) {
+                throw new ValidationException(
+                    "The selected ward does not belong to the selected hospital. " +
+                    "Please select a ward that exists in " + hospitalName + "."
+                );
+            }
+        }
+        
+        patient.setWard(ward);
+        patient.setHospital(hospital);
 
         return patientRepository.save(patient);
     }
@@ -118,6 +161,17 @@ public class PatientService {
             throw new EntityNotFoundException("Patient not found");
         }
         patientRepository.deleteById(patientId);
+    }
+
+    // Query methods
+    public List<Patient> getPatientsByWardId(UUID wardId) {
+        Objects.requireNonNull(wardId, "Ward ID cannot be null");
+        return patientRepository.findByWardId(wardId);
+    }
+
+    public List<Patient> getPatientsByHospitalId(UUID hospitalId) {
+        Objects.requireNonNull(hospitalId, "Hospital ID cannot be null");
+        return patientRepository.findByHospitalId(hospitalId);
     }
 }
 

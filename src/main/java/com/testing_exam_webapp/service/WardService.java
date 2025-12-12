@@ -3,6 +3,7 @@ package com.testing_exam_webapp.service;
 import com.testing_exam_webapp.dto.WardRequest;
 import com.testing_exam_webapp.exception.EntityNotFoundException;
 import com.testing_exam_webapp.model.mysql.Ward;
+import com.testing_exam_webapp.model.types.WardType;
 import com.testing_exam_webapp.repository.WardRepository;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,16 @@ public class WardService {
             throw new EntityNotFoundException("Ward not found");
         }
         wardRepository.deleteById(wardId);
+    }
+
+    // Query methods
+    public List<Ward> getWardsByType(WardType type) {
+        return wardRepository.findByType(type);
+    }
+
+    public List<Ward> getWardsByHospitalId(UUID hospitalId) {
+        Objects.requireNonNull(hospitalId, "Hospital ID cannot be null");
+        return wardRepository.findByHospitalId(hospitalId);
     }
 }
 

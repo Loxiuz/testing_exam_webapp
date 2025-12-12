@@ -18,5 +18,7 @@ public class NurseRequest {
     private NurseSpecialityType speciality;
     
     private UUID wardId;
+    
+    private UUID hospitalId;
 }
 

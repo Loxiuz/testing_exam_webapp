@@ -16,4 +16,6 @@ public class Doctor extends DoctorBase {
     private UUID doctorId;
     @ManyToOne
     private Ward ward;
+    @ManyToOne
+    private Hospital hospital;
 }

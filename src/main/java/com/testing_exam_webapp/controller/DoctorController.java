@@ -2,6 +2,7 @@ package com.testing_exam_webapp.controller;
 
 import com.testing_exam_webapp.dto.DoctorRequest;
 import com.testing_exam_webapp.model.mysql.Doctor;
+import com.testing_exam_webapp.model.types.DoctorSpecialityType;
 import com.testing_exam_webapp.service.DoctorService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -58,6 +59,37 @@ public class DoctorController {
     public ResponseEntity<Void> deleteDoctor(@PathVariable UUID id) {
         doctorService.deleteDoctor(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // Query endpoints
+    @GetMapping("/by-ward/{wardId}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<List<Doctor>> getDoctorsByWardId(@PathVariable UUID wardId) {
+        List<Doctor> doctors = doctorService.getDoctorsByWardId(wardId);
+        if (doctors.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(doctors, HttpStatus.OK);
+    }
+
+    @GetMapping("/by-speciality/{speciality}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<List<Doctor>> getDoctorsBySpeciality(@PathVariable DoctorSpecialityType speciality) {
+        List<Doctor> doctors = doctorService.getDoctorsBySpeciality(speciality);
+        if (doctors.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(doctors, HttpStatus.OK);
+    }
+
+    @GetMapping("/by-hospital/{hospitalId}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    public ResponseEntity<List<Doctor>> getDoctorsByHospitalId(@PathVariable UUID hospitalId) {
+        List<Doctor> doctors = doctorService.getDoctorsByHospitalId(hospitalId);
+        if (doctors.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(doctors, HttpStatus.OK);
     }
 }
 

@@ -6,12 +6,14 @@ import com.testing_exam_webapp.model.mysql.Appointment;
 import com.testing_exam_webapp.model.mysql.Doctor;
 import com.testing_exam_webapp.model.mysql.Nurse;
 import com.testing_exam_webapp.model.mysql.Patient;
+import com.testing_exam_webapp.model.types.AppointmentStatusType;
 import com.testing_exam_webapp.repository.AppointmentRepository;
 import com.testing_exam_webapp.repository.DoctorRepository;
 import com.testing_exam_webapp.repository.NurseRepository;
 import com.testing_exam_webapp.repository.PatientRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -113,5 +115,37 @@ public class AppointmentService {
             throw new EntityNotFoundException("Appointment not found");
         }
         appointmentRepository.deleteById(appointmentId);
+    }
+
+    // Query methods
+    public List<Appointment> getAppointmentsByPatientId(UUID patientId) {
+        Objects.requireNonNull(patientId, "Patient ID cannot be null");
+        return appointmentRepository.findByPatientId(patientId);
+    }
+
+    public List<Appointment> getAppointmentsByDoctorId(UUID doctorId) {
+        Objects.requireNonNull(doctorId, "Doctor ID cannot be null");
+        return appointmentRepository.findByDoctorId(doctorId);
+    }
+
+    public List<Appointment> getAppointmentsByNurseId(UUID nurseId) {
+        Objects.requireNonNull(nurseId, "Nurse ID cannot be null");
+        return appointmentRepository.findByNurseId(nurseId);
+    }
+
+    public List<Appointment> getAppointmentsByStatus(AppointmentStatusType status) {
+        Objects.requireNonNull(status, "Status cannot be null");
+        return appointmentRepository.findByStatus(status);
+    }
+
+    public List<Appointment> getAppointmentsByDate(LocalDate date) {
+        Objects.requireNonNull(date, "Date cannot be null");
+        return appointmentRepository.findByAppointmentDate(date);
+    }
+
+    public List<Appointment> getAppointmentsByDateRange(LocalDate startDate, LocalDate endDate) {
+        Objects.requireNonNull(startDate, "Start date cannot be null");
+        Objects.requireNonNull(endDate, "End date cannot be null");
+        return appointmentRepository.findByAppointmentDateBetween(startDate, endDate);
     }
 }

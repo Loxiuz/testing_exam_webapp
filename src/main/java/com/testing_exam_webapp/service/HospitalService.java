@@ -81,5 +81,11 @@ public class HospitalService {
         }
         hospitalRepository.deleteById(hospitalId);
     }
+
+    // Query methods
+    public List<Hospital> getHospitalsByCity(String city) {
+        Objects.requireNonNull(city, "City cannot be null");
+        return hospitalRepository.findByCity(city);
+    }
 }
 

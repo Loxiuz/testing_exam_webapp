@@ -1,0 +1,23 @@
+Ward Queries:
+GET /wards/by-type/{type} - Get all wards of a specific type (CARDIOLOGY, NEUROLOGY, etc.)
+GET /wards/by-hospital/{hospitalId} - Get all wards in a specific hospital
+
+Hospital Queries:
+GET /hospitals/by-city/{city} - Get all hospitals in a specific city
+
+Patient Queries:
+GET /patients/by-ward/{wardId} - Get all patients in a specific ward
+GET /patients/by-hospital/{hospitalId} - Get all patients in a specific hospital
+
+Doctor Queries:
+GET /doctors/by-ward/{wardId} - Get all doctors in a specific ward
+GET /doctors/by-speciality/{speciality} - Get all doctors with a specific speciality
+GET /doctors/by-hospital/{hospitalId} - Get all doctors in a specific hospital (through wards)
+
+Appointment Queries:
+GET /appointments/by-patient/{patientId} - Get all appointments for a patient
+GET /appointments/by-doctor/{doctorId} - Get all appointments for a doctor
+GET /appointments/by-nurse/{nurseId} - Get all appointments for a nurse
+GET /appointments/by-status/{status} - Get all appointments with a specific status
+GET /appointments/by-date/{date} - Get all appointments on a specific date
+GET /appointments/by-date-range?startDate=...&endDate=... - Get appointments in a date range
