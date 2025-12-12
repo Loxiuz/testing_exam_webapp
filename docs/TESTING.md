@@ -221,6 +221,66 @@ frontend/src/__tests__/
     └── doctorService.test.ts (3+ tests)
 ```
 
+## White Box Testing
+
+### Explicit White Box Tests
+
+A dedicated white box test class has been created: `PatientServiceWhiteBoxTest.java`
+
+This class explicitly demonstrates:
+
+#### 1. Branch Coverage
+Tests every branch in conditional statements:
+- `if (request.getDiagnosisIds() != null)` - TRUE and FALSE branches
+- `if (wardId != null)` - TRUE and FALSE branches
+- `if (hospitalId != null)` - TRUE and FALSE branches
+- `if (ward != null && hospital != null)` - TRUE and FALSE branches
+- `if (!wardBelongsToHospital)` - TRUE and FALSE branches
+- `if (ward.getHospitals() != null)` - TRUE and FALSE branches
+
+#### 2. Condition Coverage
+Tests all combinations of compound conditions:
+- `(ward != null && hospital != null)` - All 4 combinations:
+  - FALSE && FALSE (both null)
+  - TRUE && FALSE (ward not null, hospital null)
+  - FALSE && TRUE (ward null, hospital not null)
+  - TRUE && TRUE (both not null)
+- `ward.getHospitals() != null && stream().anyMatch(...)` - All combinations
+
+#### 3. Path Coverage
+Tests all possible execution paths through `createPatient()`:
+- Path 1: No diagnosis, no ward, no hospital
+- Path 2: With diagnosis, no ward, no hospital
+- Path 3: No diagnosis, with ward, no hospital
+- Path 4: No diagnosis, no ward, with hospital
+- Path 5: No diagnosis, with ward, with hospital (validation passes)
+- Path 6: No diagnosis, with ward, with hospital (validation fails)
+- Path 7: With diagnosis, with ward, with hospital (all branches taken)
+
+#### 4. Statement Coverage
+Ensures every statement is executed:
+- Tests for-loop execution with multiple diagnoses
+- Verifies all assignment statements
+- Confirms all method calls are executed
+
+### Code Coverage with JaCoCo
+
+JaCoCo plugin has been configured to generate code coverage reports:
+
+```bash
+# Run tests and generate coverage report
+./gradlew test jacocoTestReport
+
+# View HTML report
+# Open: build/reports/jacoco/html/index.html
+```
+
+The coverage report shows:
+- **Line Coverage**: Percentage of lines executed
+- **Branch Coverage**: Percentage of branches taken
+- **Method Coverage**: Percentage of methods called
+- **Class Coverage**: Percentage of classes tested
+
 ## Running Tests
 
 ### Backend Tests
@@ -242,7 +302,8 @@ frontend/src/__tests__/
 cd frontend
 
 # Install dependencies (first time only)
-npm install
+# Note: Use --legacy-peer-deps due to React 19 compatibility with @testing-library/react
+npm install --legacy-peer-deps
 
 # Run tests
 npm test
@@ -253,6 +314,8 @@ npm test -- --watch
 # Run tests with UI
 npm run test:ui
 ```
+
+**Note**: The `--legacy-peer-deps` flag is required because React 19 is newer than what `@testing-library/react@14.x` officially supports. The library still works correctly with React 19, but npm requires this flag to bypass the peer dependency check.
 
 ## Test Naming Conventions
 
@@ -339,7 +402,7 @@ TestDataBuilder.associateWardWithHospital(ward, hospital);
 2. End-to-end tests with Playwright/Cypress
 3. Performance/load tests
 4. Mutation testing
-5. Code coverage reports with JaCoCo
+5. ~~Code coverage reports with JaCoCo~~ ✅ **COMPLETED**
 
 ## Conclusion
 

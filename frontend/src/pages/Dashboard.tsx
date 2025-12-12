@@ -8,6 +8,8 @@ import { hospitalService } from '../services/hospitalService';
 import { wardService } from '../services/wardService';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { useAuth } from '../context/AuthContext';
+import { WeatherWidget } from '../components/widgets/WeatherWidget';
+import { ClockWidget } from '../components/widgets/ClockWidget';
 
 export const Dashboard: React.FC = () => {
   const [stats, setStats] = useState({
@@ -72,6 +74,12 @@ export const Dashboard: React.FC = () => {
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Dashboard</h1>
+
+      {/* Widgets Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <WeatherWidget />
+        <ClockWidget />
+      </div>
 
       {/* View Section */}
       <div className="bg-white shadow rounded-lg">

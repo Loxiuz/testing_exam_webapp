@@ -143,3 +143,24 @@ export interface User {
   role: Role;
 }
 
+// Weather Types
+export interface Weather {
+  city: string;
+  country: string;
+  temperature: number;
+  description: string;
+  icon: string;
+  humidity: number;
+  windSpeed: number;
+  condition: string;
+}
+
+// Time Types
+export interface Time {
+  datetime: string;
+  timezone: string;
+  abbreviation: string;
+  dayOfWeek: number;
+  dayOfYear: number;
+}
+

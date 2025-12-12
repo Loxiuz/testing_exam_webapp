@@ -5,6 +5,7 @@ import { Hospital } from '../../types';
 import { LoadingSpinner } from '../../components/common/LoadingSpinner';
 import { ErrorMessage } from '../../components/common/ErrorMessage';
 import { useAuth } from '../../context/AuthContext';
+import { WeatherWidget } from '../../components/widgets/WeatherWidget';
 
 export const HospitalDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -119,6 +120,13 @@ export const HospitalDetail: React.FC = () => {
           </dl>
         </div>
       </div>
+
+      {/* Weather Widget Section */}
+      {hospital.city && (
+        <div className="mt-6">
+          <WeatherWidget city={hospital.city} />
+        </div>
+      )}
     </div>
   );
 };
